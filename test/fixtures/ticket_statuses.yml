@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  createddate: 2019-03-01
+
+two:
+  status: MyString
+  createddate: 2019-03-01

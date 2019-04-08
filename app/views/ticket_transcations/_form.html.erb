@@ -1,0 +1,42 @@
+<%= form_with(model: ticket_transcation, local: true) do |form| %>
+  <% if ticket_transcation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ticket_transcation.errors.count, "error") %> prohibited this ticket_transcation from being saved:</h2>
+
+      <ul>
+      <% ticket_transcation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_field :notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ticket_status_id %>
+    <%= form.text_field :ticket_status_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ticket_id %>
+    <%= form.text_field :ticket_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ticket_sub_status_id %>
+    <%= form.text_field :ticket_sub_status_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ticket_attachment_id %>
+    <%= form.text_field :ticket_attachment_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

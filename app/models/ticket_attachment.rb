@@ -1,0 +1,2 @@
+class TicketAttachment < ApplicationRecord
+end

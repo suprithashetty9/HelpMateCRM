@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ticket Transcations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Notes</th>
+      <th>Ticket status</th>
+      <th>Ticket</th>
+      <th>Ticket sub status</th>
+      <th>Ticket attachment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ticket_transcations.each do |ticket_transcation| %>
+      <tr>
+        <td><%= ticket_transcation.notes %></td>
+        <td><%= ticket_transcation.ticket_status %></td>
+        <td><%= ticket_transcation.ticket %></td>
+        <td><%= ticket_transcation.ticket_sub_status %></td>
+        <td><%= ticket_transcation.ticket_attachment %></td>
+        <td><%= link_to 'Show', ticket_transcation %></td>
+        <td><%= link_to 'Edit', edit_ticket_transcation_path(ticket_transcation) %></td>
+        <td><%= link_to 'Destroy', ticket_transcation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ticket Transcation', new_ticket_transcation_path %>

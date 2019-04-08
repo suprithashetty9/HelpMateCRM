@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Caller type:</strong>
+  <%= @ticket.caller_type.callertype %>
+</p>
+
+<p>
+  <strong>Ticket type:</strong>
+  <%= @ticket.ticket_type.tickettype %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @ticket.product.productdesc %>
+</p>
+
+<p>
+  <strong>Manufacturedate:</strong>
+  <%= @ticket.manufacturedate %>
+</p>
+
+<p>
+  <strong>Expirydate:</strong>
+  <%= @ticket.expirydate %>
+</p>
+
+<p>
+  <strong>Batchnumber:</strong>
+  <%= @ticket.batchnumber %>
+</p>
+
+<p>
+  <strong>Purchasepoint:</strong>
+  <%= @ticket.purchasepoint %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ticket.description %>
+</p>
+
+<p>
+  <strong>Resolution:</strong>
+  <%= @ticket.resolution %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @ticket.customer.name %>
+</p>
+
+<p>
+  <strong>Ticket status:</strong>
+  <%= @ticket.ticket_status.status %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @ticket.source.source %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @ticket.employee.employeename %>
+</p>
+
+<%= link_to 'Edit', edit_customer_ticket_path(@ticket) %> |
+<%= link_to 'Back', new_customer_ticket_path(@ticket) %>

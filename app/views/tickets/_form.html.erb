@@ -1,0 +1,78 @@
+<%= form_for([@customer, @ticket]) do |form| %>
+  <% if ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+
+      <ul>
+      <% ticket.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :caller_type_id %>
+    <%= collection_select(:ticket, :caller_type_id, CallerType.all, :id, :callertype, {}, {:multiple => false} ) =%>
+  </div>
+
+  <div class="field">
+    <%= form.label :ticket_type_id %>
+    <%= collection_select(:ticket, :ticket_type_id, TicketType.all, :id, :tickettype, {}, {:multiple => false} ) =%>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= collection_select(:ticket, :product_id, Product.all, :id, :productdesc, {}, {:multiple => false} ) =%>
+  </div>
+
+  <div class="field">
+    <%= form.label :manufacturedate %>
+    <%= form.datetime_select :manufacturedate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expirydate %>
+    <%= form.datetime_select :expirydate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :batchnumber %>
+    <%= form.text_field :batchnumber %>
+  </div>
+
+  <div class="field">
+    <%= form.label :purchasepoint %>
+    <%= form.text_field :purchasepoint %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :resolution %>
+    <%= form.text_field :resolution %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :ticket_status_id %>
+<%= collection_select(:ticket, :ticket_status_id, TicketStatus.all, :id, :status, {}, {:multiple => false} ) =%>
+  </div>
+
+  <div class="field">
+    <%= form.label :source_id %>
+    <%= collection_select(:ticket, :source_id, Source.all, :id, :source, {}, {:multiple => false} ) =%>
+  </div>
+
+  <div class="field">
+    <%= form.label :employee_id %>
+    <%= collection_select(:ticket, :employee_id, Employee.all, :id, :employeename, {}, {:multiple => false} ) =%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

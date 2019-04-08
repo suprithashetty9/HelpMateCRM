@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Productsku:</strong>
+  <%= @product_sku.productsku %>
+</p>
+
+<p>
+  <strong>Createdby:</strong>
+  <%= @product_sku.createdby %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @product_sku.product %>
+</p>
+
+<%= link_to 'Edit', edit_product_sku_path(@product_sku) %> |
+<%= link_to 'Back', product_skus_path %>

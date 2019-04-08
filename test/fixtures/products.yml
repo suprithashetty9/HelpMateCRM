@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  productdesc: MyString
+  createddate: 2019-03-01
+  cratedby: 1
+
+two:
+  productdesc: MyString
+  createddate: 2019-03-01
+  cratedby: 1

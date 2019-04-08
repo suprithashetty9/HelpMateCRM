@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @ticket_transcation.notes %>
+</p>
+
+<p>
+  <strong>Ticket status:</strong>
+  <%= @ticket_transcation.ticket_status %>
+</p>
+
+<p>
+  <strong>Ticket:</strong>
+  <%= @ticket_transcation.ticket %>
+</p>
+
+<p>
+  <strong>Ticket sub status:</strong>
+  <%= @ticket_transcation.ticket_sub_status %>
+</p>
+
+<p>
+  <strong>Ticket attachment:</strong>
+  <%= @ticket_transcation.ticket_attachment %>
+</p>
+
+<%= link_to 'Edit', edit_ticket_transcation_path(@ticket_transcation) %> |
+<%= link_to 'Back', ticket_transcations_path %>

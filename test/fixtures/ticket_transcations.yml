@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  notes: MyString
+  ticket_status: one
+  ticket: one
+  ticket_sub_status: one
+  ticket_attachment: one
+
+two:
+  notes: MyString
+  ticket_status: two
+  ticket: two
+  ticket_sub_status: two
+  ticket_attachment: two

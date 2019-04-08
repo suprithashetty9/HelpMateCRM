@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Caller Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Callertype</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @caller_types.each do |caller_type| %>
+      <tr>
+        <td><%= caller_type.callertype %></td>
+        <td><%= link_to 'Show', caller_type %></td>
+        <td><%= link_to 'Edit', edit_caller_type_path(caller_type) %></td>
+        <td><%= link_to 'Destroy', caller_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Caller Type', new_caller_type_path %>
