@@ -39,7 +39,8 @@ class TicketsController < ApplicationController
 @ticket = @customer.tickets.build(params.require(:ticket).permit(:caller_type_id,:ticket_type_id, :product_id,:manufacturedate,:expirydate, :batchnumber,:purchasepoint, :description, :resolution,:ticket_status_id, :source_id, :employee_id ))
 if @ticket.save
 # Save the review successfully
-redirect_to customer_ticket_url(@customer, @ticket)
+# redirect_to customer_ticket_url(@customer, @ticket)
+ redirect_to customer_tickets_path(@customer,@ticket)
 else
 render :action => "new"
 end

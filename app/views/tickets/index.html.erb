@@ -25,22 +25,22 @@
   <tbody>
     <% @tickets.each do |ticket| %>
       <tr>
-        <td><%= ticket.caller_type %></td>
-        <td><%= ticket.ticket_type %></td>
-        <td><%= ticket.product %></td>
+        <td><%= ticket.caller_type.callertype %></td>
+        <td><%= ticket.ticket_type.tickettype %></td>
+        <td><%= ticket.product.productdesc %></td>
         <td><%= ticket.manufacturedate %></td>
         <td><%= ticket.expirydate %></td>
         <td><%= ticket.batchnumber %></td>
         <td><%= ticket.purchasepoint %></td>
         <td><%= ticket.description %></td>
         <td><%= ticket.resolution %></td>
-        <td><%= ticket.customer %></td>
-        <td><%= ticket.ticket_status %></td>
-        <td><%= ticket.source %></td>
-        <td><%= ticket.employee %></td>
-        <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= ticket.customer.name %></td>
+        <td><%= ticket.ticket_status.status %></td>
+        <td><%= ticket.source.source %></td>
+        <td><%= ticket.employee.employeename %></td>
+         <td><%= link_to 'Show', customer_ticket_path(@customer,ticket) %></td>
+        <td><%= link_to 'Edit', edit_customer_ticket_path(@customer,ticket) %></td>
+        
       </tr>
     <% end %>
   </tbody>
@@ -48,4 +48,4 @@
 
 <br>
 
-<%= link_to 'New Ticket', new_ticket_path %>
+<%= link_to 'New Ticket', new_customer_ticket_path(@customer)  %>

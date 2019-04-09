@@ -65,5 +65,5 @@
   <%= @ticket.employee.employeename %>
 </p>
 
-<%= link_to 'Edit', edit_customer_ticket_path(@ticket) %> |
+<%= link_to 'Edit', edit_customer_ticket_path(@customer, @ticket) %> |
 <%= link_to 'Back', new_customer_ticket_path(@ticket) %>
