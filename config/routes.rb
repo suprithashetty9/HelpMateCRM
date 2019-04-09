@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+   get "/send_mail" => "ticket_mailer#send_mail"
  
   resources :customers do
      resources :tickets
