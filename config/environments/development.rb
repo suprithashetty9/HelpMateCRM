@@ -59,7 +59,7 @@ config.action_mailer.default_url_options = { host: ENV['IP'],port: ENV['PORT'] }
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
-    config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { :host => ENV['IP']}
   config.action_mailer.delivery_method = :smtp
@@ -70,4 +70,5 @@ config.action_mailer.default_url_options = { host: ENV['IP'],port: ENV['PORT'] }
     :password => "maverick@123",    :authentication =>"plain",
     enable_starttls_auto: true 
   }
+   config.action_mailer.perform_caching = false
 end

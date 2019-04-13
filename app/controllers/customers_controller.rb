@@ -5,6 +5,16 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     @customers = Customer.all
+    
+    respond_to do |format|
+    format.xlsx {
+      response.headers[
+        'Content-Disposition'
+      ] = 'attachment; filename="customers.xlsx"'
+    }
+    format.html { render :index }
+  end
+  
   end
 
   # GET /customers/1

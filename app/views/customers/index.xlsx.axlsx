@@ -1,0 +1,23 @@
+wb = xlsx_package.workbook
+
+wb.styles do |style|
+  project_heading = style.add_style(b: true, sz: 14)
+  heading = style.add_style(b: true)
+
+  wb.add_worksheet(name: "Customers") do |sheet|
+    # Add a title row
+    sheet.add_row ["Customers Lisr"], style: project_heading
+    # Add the date this was downloaded
+    sheet.add_row ["Downloaded at", Time.now.strftime("%b %-d, %Y")]
+    # Add a blank row
+    sheet.add_row []
+    # Create the header row
+    sheet.add_row ["Name", "Email", "Mobilenumber", "Address", "Pincode", "Age", "Country"], style: heading
+    # Create the database reference row
+    sheet.add_row ["Name", "Email", "Mobilenumber", "Address", "Pincode", "Age", "Country"], style: heading
+    # Create entries for each item
+    @customers.each do |customer|
+      sheet.add_row [customer.name, customer.email, customer.mobilenumber, customer.address, customer.pincode, customer.age, customer.country]
+    end
+  end
+end

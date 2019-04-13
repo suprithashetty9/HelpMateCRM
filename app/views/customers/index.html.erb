@@ -2,6 +2,16 @@
 
 <h1>Customers</h1>
 
+<%=
+  link_to 'Download as Excel',
+  customers_path(format: :xlsx)
+%>
+
+<%=
+  link_to 'Upload from Excel',
+  new_customers_import_path
+%>
+
 <table>
   <thead>
     <tr>

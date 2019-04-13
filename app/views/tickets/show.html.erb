@@ -64,6 +64,18 @@
   <strong>Employee:</strong>
   <%= @ticket.employee.employeename %>
 </p>
+<%= link_to 'Assign',assign_path %>
+
+<%= link_to 'Calculate SLA',calculate_sla_path %>
+
+
+
+
+
+
+
+
+
 
 <%= link_to 'Edit', edit_customer_ticket_path(@customer, @ticket) %> |
 <%= link_to 'Back', new_customer_ticket_path(@ticket) %>

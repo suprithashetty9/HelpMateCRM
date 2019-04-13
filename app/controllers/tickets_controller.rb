@@ -6,6 +6,8 @@ class TicketsController < ApplicationController
   def index
 @customer = Customer.find(params[:customer_id])
 @tickets = @customer.tickets
+
+
   end
 
   # GET /tickets/1
