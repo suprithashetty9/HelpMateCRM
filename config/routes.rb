@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  root 'initial#loginpage'
   get 'customers_imports/new'
   get 'customers_imports/create'
    get "/send_mail" => "ticket_mailer#send_mail"
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
  
   get 'welcome/homepage'
   devise_for :users
-  root 'initial#loginpage'
+  
 # resources :homepage, controller: 'welcome'
   resources :ticket_transcations
   resources :employees

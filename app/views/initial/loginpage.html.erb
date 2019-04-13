@@ -1,0 +1,108 @@
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>HelpMate CRM</title>
+
+  <!-- Bootstrap core CSS -->
+   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template -->
+  <link href="css/agency.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+    <header class="masthead">
+      <div class= "container">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger"><b>HelpMate</b></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services"><b>Services</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about"><b>About</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact"><b>Contact</b></a>
+          </li>
+          <li class="nav-item">
+           <b><%= link_to 'Sign Up',new_user_registration_path ,:class => "nav-link js-scroll-trigger" %></b>
+          </li>
+        </ul>
+  </nav>
+</div>
+</div>
+  <!-- Header -->
+
+
+      <div class="intro-text">
+        <div class="intro-lead-in">Welcome To HelpMate!</div>
+        <div class="intro-heading text-uppercase">You are at right place now!</div>
+        <%= link_to 'Login',welcome_homepage_path ,:class  => "btn btn-info btn lg" %>
+        <!--<a class="" href="">Login</a>-->
+      </div>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase"><b>Services</b></h2>
+          <h3 class="section-subheading text-muted">.</h3>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Better Customer Service</h4>
+          <p class="text-muted">Easy enquiries, logde a complaint and understand the customer history and have it sstored.</p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Auto Assign Tickets</h4>
+          <p class="text-muted"> nOnce the ticket is created it gets auto-assigned to the respective member</p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Upload Tickets</h4>
+          <p class="text-muted">If a ticket or a complaint is taken down in excel file it can be uploaded using this feature</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+</body>
+
+</html>
