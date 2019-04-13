@@ -10,69 +10,178 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+ <div class="row">
+      <div class="col-sm-2 col-md-3 col-lg-5 mx-auto">
+         <ul class="breadcrumb">
+      <li class="active"><%= link_to 'Home',welcome_homepage_path %></li>
+      <li><%= link_to 'All Customer List', customers_path %></li>
+      <li><%= link_to 'Customers History', customer_tickets_path %></li>
+    </ul>
+        <div class="card card-signin my-1">
+  <div class="panel panel-primary">
+  <div class="panel-heading">
+    
+     <h1>New Ticket</h1>
+     </div>
+<div class="panel panel-warning">
+  </div>
+  <div class="field" >
     <%= form.label :caller_type_id %>
-    <%= collection_select(:ticket, :caller_type_id, CallerType.all, :id, :callertype, {}, {:multiple => false} ) =%>
+    <%= collection_select(:ticket, :caller_type_id, CallerType.all, :id, :callertype, {}, {:multiple => false, :class=>"form-control"} ) =%>
   </div>
 
   <div class="field">
     <%= form.label :ticket_type_id %>
-    <%= collection_select(:ticket, :ticket_type_id, TicketType.all, :id, :tickettype, {}, {:multiple => false} ) =%>
+    <%= collection_select(:ticket, :ticket_type_id, TicketType.all, :id, :tickettype, {}, {:multiple => false,:class=>"form-control",:onchange => "callMe(this.value)"} ) =%>
   </div>
 
   <div class="field">
     <%= form.label :product_id %>
-    <%= collection_select(:ticket, :product_id, Product.all, :id, :productdesc, {}, {:multiple => false} ) =%>
+    <%= collection_select(:ticket, :product_id, Product.all, :id, :productdesc, {}, {:multiple => false, :class=>"form-control", :onchange => "callMep(this.value)"} ) =%>
   </div>
 
-  <div class="field">
+  <div class="field" id="mfd">
     <%= form.label :manufacturedate %>
-    <%= form.datetime_select :manufacturedate %>
+    <%= form.datetime_select :manufacturedate , :class=>"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field" id="exd">
     <%= form.label :expirydate %>
-    <%= form.datetime_select :expirydate %>
+    <%= form.datetime_select :expirydate , :class=>"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field" id="batchnumber">
     <%= form.label :batchnumber %>
-    <%= form.text_field :batchnumber %>
+    <%= form.text_field :batchnumber , :class=>"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field" id="pp">
     <%= form.label :purchasepoint %>
-    <%= form.text_field :purchasepoint %>
+    <%= form.text_field :purchasepoint , :class=>"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field" id="description">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description , :class=>"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field" id="resolution">
     <%= form.label :resolution %>
-    <%= form.text_field :resolution %>
+    <%= form.text_field :resolution , :class=>"form-control"%>
   </div>
-
+  
+  <div class="field" id="sku">
+    <%= form.label :sku %>
+    <%= form.text_field :sku , :class=>"form-control" %>
+  </div>
+  
+    <div class="field" id="type">
+    <%= form.label :type %>
+    <%= form.text_field :type , :class=>"form-control" %>
+  </div>
 
   <div class="field">
     <%= form.label :ticket_status_id %>
-<%= collection_select(:ticket, :ticket_status_id, TicketStatus.all, :id, :status, {}, {:multiple => false} ) =%>
+<%= collection_select(:ticket, :ticket_status_id, TicketStatus.all, :id, :status, {}, {:multiple => false, :class=>"form-control"} ) =%>
   </div>
 
   <div class="field">
     <%= form.label :source_id %>
-    <%= collection_select(:ticket, :source_id, Source.all, :id, :source, {}, {:multiple => false} ) =%>
+    <%= collection_select(:ticket, :source_id, Source.all, :id, :source, {}, {:multiple => false , :class=>"form-control"} ) =%>
   </div>
-
-  <div class="field">
+  
+    <div class="field">
     <%= form.label :employee_id %>
-    <%= collection_select(:ticket, :employee_id, Employee.all, :id, :employeename, {}, {:multiple => false} ) =%>
+    <%= collection_select(:ticket, :employee_id, Employee.all, :id, :employeename, {}, {:multiple => false , :class=>"form-control"} ) =%>
   </div>
-
+    <div class="field" id="forbodylotion">
+Body Lotion AfterSun:
+<%= check_box_tag 'ticket[bodylotion]', 'bodylotion' %>
+</div>
+    <div class="field" id="bodylotionmoisturizer">
+Body Lotion Moisturizer:
+<%= check_box_tag 'ticket[bodylotionmoisturizer]', 'bodylotionmoisturizer' %>
+</div>
+<div class="field" id="soapid">
+3 pack Soap:
+<%= check_box_tag 'ticket[soap]', 'soap' %>
+</div>
+<div class="field" id="facewashid">
+Facewash:
+<%= check_box_tag 'ticket[facewash]', 'facewash' %>
+</div>
+<div class="field" id="lipbalm">
+Lip Balm:
+<%= check_box_tag 'ticket[lipbalm]', 'lipbalm' %>
+</div>
+       <a href="/send_mail">click to send mail</a>
+  
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Submit',:class => "btn-info btn-sm" %>
   </div>
-<% end %>
+  </div>
+  </div>
+  </div>
+  </div>
+ <script>
+     document.getElementById("forbodylotion").style.display = "none";
+  document.getElementById("soapid").style.display = "none";
+  document.getElementById("facewashid").style.display = "none";
+  document.getElementById("bodylotionmoisturizer").style.display = "none";
+  document.getElementById("lipbalm").style.display = "none";
+ </script>
+ <script>
+      
+          function callMep(ticket)
+          {
+            var value =ticket
+            console.log(value)
+            if(value==2)
+            {
+              $('#forbodylotion').show();
+              $('#bodylotionmoisturizer').show();
+              $('#soapid').show();
+            }
+            else if(value==3){
+            $('#facewashid').show();
+            $('#lipbalm').show();
+             $('#forbodylotion').hide();
+              $('#bodylotionmoisturizer').hide();
+              $('#soapid').show();
+            }
+            else if(value==1){
+               $('#facewashid').hide();
+            $('#lipbalm').hide();
+                  $('#forbodylotion').hide();
+              $('#bodylotionmoisturizer').hide();
+              $('#soapid').hide();
+            }
+            
+          }
+ </script>
+  <script>
+  function callMe(ticket)
+   {
+     var value = ticket;
+     console.log(value);
+        if(value==2){
+         $('#mfd').hide();
+         $('#exd').hide();
+         $('#resolution').hide();
+         $('#batchnumber').hide();
+         $('#pp').hide();
+         $('#sku').hide();
+         $('#type').hide();
+         }else{
+          $('#mfd').show();
+           $('#exd').hide();
+            $('#resolution').show();
+            $('#batchnumber').show();
+            $('#pp').show();
+            $('#sku').show();
+            $('#type').show()
+         }
+            }
+        </script>
+  
+ <% end %>

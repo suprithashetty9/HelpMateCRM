@@ -15,7 +15,6 @@
   <title>HelpMate</title>
 
   <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
@@ -86,7 +85,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Tickets:</h6>
-            <%= link_to 'Create Ticket', new_customer_path,:class  => "collapse-item" %>
+            <%= link_to 'Create Ticket', customers_path,:class  => "collapse-item" %>
         
             <a class="collapse-item" href="utilities-border.html">My Ticket List</a>
             <a class="collapse-item" href="utilities-animation.html">Move For Closure List</a>
@@ -633,5 +632,9 @@
   <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
-
+<script>
+  document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+</script>
 </html>

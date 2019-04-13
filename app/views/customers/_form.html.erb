@@ -10,43 +10,95 @@
       </ul>
     </div>
   <% end %>
-
+   <div class="row">
+    
+      <div class="col-sm-2 col-md-3 col-lg-5 mx-auto">
+         <ul class="breadcrumb">
+      <li class="active"><%= link_to 'home',welcome_homepage_path %></li>
+      <li><%= link_to 'customers list', customers_path %></li>
+    </ul>
+        <div class="card card-signin my-1">
+  <div class="panel panel-primary">
+  <div class="panel-heading">
+     <h2 >New Customer</h2>
+     </div>
+<div class="panel panel-warning">
+  </div>
+ <div class="field" id="mob">
+    <%= form.label :mobilenumber %>
+    <%= form.text_field :mobilenumber, :class=>"form-control" , :maxlength=>"10" %>
+  </div>
+ 
+  
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name , :class=>"form-control"%>
   </div>
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, :class=>"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :mobilenumber %>
-    <%= form.text_field :mobilenumber %>
-  </div>
 
   <div class="field">
     <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.text_field :address ,:class=>"form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :pincode %>
-    <%= form.text_field :pincode %>
+    <%= form.text_field :pincode , :class=>"form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :age_id %>
-    <%= collection_select(:customer, :age_id, Age.all, :id, :age, {}, {:multiple => false} ) =%>
+    <%= collection_select(:customer, :age_id, Age.all, :id, :age, {}, {:multiple => false, :onchange => "checkBmi(this.value)", :include_blank => 'forst', :class=>"form-control"} ) =%>
+  </div>
+  
+  <div class="field" id ="height">
+    <%= form.label :height %>
+    <%= form.text_field :height, :class=>"form-control" %>meters
+  </div>
+    <div class="field" id ="weight">
+    <%= form.label :weight%>
+    <%= form.text_field :weight, :class=>"form-control" %>kgs
   </div>
 
   <div class="field">
     <%= form.label :country_id %>
-    <%= collection_select(:customer, :country_id, Country.all, :id, :name, {}, {:multiple => false} ) =%>
+    <%= collection_select(:customer, :country_id, Country.all, :id, :name, {}, {:multiple => false, :class=>"form-control"} ) =%>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Submit',:class =>"btn-info btn-sm" %>
   </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <script>
+  document.getElementById("weight").style.display = "none";
+  document.getElementById("height").style.display = "none";
+    function checkBmi(customer)
+    {
+      var value= customer
+       console.log(value);
+        if(value==2 || value==3 || value ==4){
+         $('#height').show();
+         $('#weight').show();
+         }
+         else
+         {
+           $('#height').hide();
+         $('#weight').hide();
+         }
+    }
+    document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+  </script>
+  
 <% end %>
+

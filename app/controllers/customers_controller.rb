@@ -5,8 +5,7 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     @customers = Customer.all
-    
-    respond_to do |format|
+ respond_to do |format|
     format.xlsx {
       response.headers[
         'Content-Disposition'
@@ -14,8 +13,7 @@ class CustomersController < ApplicationController
     }
     format.html { render :index }
   end
-  
-  end
+end
 
   # GET /customers/1
   # GET /customers/1.json
@@ -37,6 +35,15 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     respond_to do |format|
+      
+      @height = customer_params[:height]
+      @weight = customer_params[:weight]
+      @hei =@height.to_f
+      @wei= @weight.to_f
+     if @hei != 0
+      $cal= CalculateBMI.check(@hei, @wei)
+      puts "cal#{$cal}"
+     end
       if @customer.save
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
@@ -79,6 +86,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:name, :email, :mobilenumber, :address, :pincode, :age_id, :country_id)
+      params.require(:customer).permit(:name, :email, :mobilenumber, :address, :pincode, :age_id, :country_id, :height, :weight)
     end
 end
