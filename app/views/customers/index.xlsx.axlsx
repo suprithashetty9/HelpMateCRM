@@ -17,7 +17,7 @@ wb.styles do |style|
     sheet.add_row ["Name", "Email", "Mobilenumber", "Address", "Pincode", "Age", "Country"], style: heading
     # Create entries for each item
     @customers.each do |customer|
-      sheet.add_row [customer.name, customer.email, customer.mobilenumber, customer.address, customer.pincode, customer.age, customer.country]
+      sheet.add_row [customer.name, customer.email, customer.mobilenumber, customer.address, customer.pincode, customer.age.age, customer.country.name]
     end
   end
 end

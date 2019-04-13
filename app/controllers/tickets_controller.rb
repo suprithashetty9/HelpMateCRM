@@ -1,3 +1,5 @@
+require 'EscalateTicket'
+require 'purchase_decorator'
 class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
@@ -6,15 +8,13 @@ class TicketsController < ApplicationController
   def index
 @customer = Customer.find(params[:customer_id])
 @tickets = @customer.tickets
-
-
   end
 
   # GET /tickets/1
   # GET /tickets/1.json
   def show
     @customer = Customer.find(params[:customer_id])
-# For URL like /movies/1/reviews/2
+# For URL like /customers/1/tickets/2
 @ticket = @customer.tickets.find(params[:id])
   end
 
@@ -34,14 +34,32 @@ class TicketsController < ApplicationController
   # POST /tickets.json
   def create
    @customer = Customer.find(params[:customer_id])
-# For URL like /movies/1/reviews
-# Populate an review associate with movie 1 with form data
-# Movie will be associated with the review
-# @review = @movie.reviews.build(params.require(:review).permit!)
-@ticket = @customer.tickets.build(params.require(:ticket).permit(:caller_type_id,:ticket_type_id, :product_id,:manufacturedate,:expirydate, :batchnumber,:purchasepoint, :description, :resolution,:ticket_status_id, :source_id, :employee_id ))
+# For URL like /customers/1/tickets
+@ticket = @customer.tickets.build(params.require(:ticket).permit(:caller_type_id,:ticket_type_id, :product_id,:manufacturedate,:expirydate, :batchnumber,:purchasepoint, :description, :resolution,:ticket_status_id, :source_id, :employee_id, :sku, :type ))
+myProduct = BasicProduct.new(500,@ticket.sku, @ticket.type)
+if params[:ticket][:bodylotion].to_s.length > 0 then
+  myProduct = BodyLotion.new(myProduct)
+end
+if params[:ticket][:bodylotionmoisturizer].to_s.length > 0 then
+  myProduct = BodyLotionMoisturizer.new(myProduct)
+end
+if params[:ticket][:soap].to_s.length > 0 then
+myProduct = Soap.new(myProduct)
+end
+if params[:ticket][:facewash].to_s.length > 0 then
+myProduct = Facewash.new(myProduct)
+end
+if params[:ticket][:lipbalm].to_s.length > 0 then
+myProduct = Lipbalm.new(myProduct)
+end
+@ticket.cost=myProduct.cost
+@ticket.description=myProduct.details
+
 if @ticket.save
 # Save the review successfully
-# redirect_to customer_ticket_url(@customer, @ticket)
+@tickettypeid = ticket_params[:ticket_type_id]
+@typeid= @tickettypeid.to_i
+@esc = EscalateTicket.check(@typeid)
  redirect_to customer_tickets_path(@customer,@ticket)
 else
 render :action => "new"
@@ -80,6 +98,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit(:caller_type_id, :ticket_type_id, :product_id, :manufacturedate, :expirydate, :batchnumber, :purchasepoint, :description, :resolution, :customer_id, :ticket_status_id, :source_id, :employee_id)
+      params.require(:ticket).permit(:caller_type_id, :ticket_type_id, :product_id, :manufacturedate, :expirydate, :batchnumber, :purchasepoint, :description, :resolution, :customer_id, :ticket_status_id, :source_id, :employee_id, :sku, :type)
     end
 end

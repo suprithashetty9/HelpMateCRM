@@ -40,17 +40,14 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'rails-observers'
-
+gem 'calculateBMI'
 gem "roo", '~> 2.7.0'
 
 gem 'rubyzip', '>= 1.2.1'
 gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
 gem 'axlsx_rails'
 
-gem 'slacalculator', '~> 0.0.2'
-
-
-
+gem 'slacalculator'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
