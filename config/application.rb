@@ -17,7 +17,7 @@ module HelpMateCRM
     # the framework and any gems in your application.
     
     config.active_record.observers = :employee_observer
-    config.assets.initialize_on_precompile = false
+    #config.assets.initialize_on_precompile = false
   end
   
  
